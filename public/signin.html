@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div class="centered-form__box">
+        <h1>Sign in</h1>
+        <form action="http://localhost:3001/users/login" method="POST">
+            <label class="label_decoration">Email</label>
+            <input input_parameters type="email" id="email" name="email" placeholder="email" required>
+            <label class="label_decoration">Password</label>
+            <input input_parameters type="password" id="password" name="password" placeholder="password" required>
+            <button id="submitbutton" type="submit">submit</button>
+        </form>
+</div>
+
+<div id="did_you1">
+    <h1 id="did1">?</h1>
+    <p id="didp1"></p>
+</div>
+<div id="did_you2">
+    <h1 id="did2">?</h1>
+    <p id="didp2"></p>
+</div>
+<div id="did_you3">
+    <h1 id="did3">?</h1>
+    <p id="didp3"></p>
+</div>
+<script src="./signin.js"></script>
+</body>
+</html>

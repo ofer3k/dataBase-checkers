@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+    <body style="background-color:#333744" >
+
+      <div id="side_color"></div>
+    <div id="chat_bar" class="side_chat body1">
+        <h1 id="chat_title_h1">chat</h1>
+        <ul id="messages"></ul>
+        <form class="form1" action="">
+          <input class="form_input" id="m" autocomplete="off" />
+          <button id="chat_button"></button>
+        </form>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script>
+          $(function () {
+            var socket = io();
+            $('form').submit(function(){
+              socket.emit('chat message', $('#m').val());
+              $('#m').val('');
+              return false;
+            });
+            socket.on('chat message', function(msg){
+              $('#messages').append($('<li>').text(msg));
+           
+                $("#chat_bar").animate({ scrollTop: $('#chat_bar')[0].scrollHeight}, 500);
+               
+            });
+          });
+        </script>
+      </div>
+      
+        <div id="side-info" class="side-info">
+          <h1>Hall Of Fame:</h1>
+          <ul id="bestPlayers"></ul>
+        </div>
+        
+        <div class="centered-form">
+          <div class="centered-form__box">
+              <h1>Welcome friend.</h1>
+              <h1>Good to have you here.</h1>
+              
+                <a href="./signup.html">new player</a>
+                <a href="./signin.html">old player</a>
+                <button id="passerByButton">A frightened passerby</button>
+                  <script src="./menu.js"></script>
+          </div>
+      </div>
+      </body>
+
+</html>
